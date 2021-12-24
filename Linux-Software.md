@@ -41,7 +41,7 @@ npm -v
 ```
 
 
-###二、安装MySQL及配置环境变量
+### 二、安装MySQL及配置环境变量
 
 #### 1、下载并安装MySQL官方的 Yum Repository
 
