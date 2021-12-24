@@ -52,8 +52,9 @@ wget -i -c http://dev.mysql.com/get/mysql57-community-release-el7-10.noarch.rpm
 # 直接yum安装
 yum -y install mysql57-community-release-el7-10.noarch.rpm
 
-# 开始安装MySQL服务器
+# 开始安装MySQL服务器(如果报错，先尝试运行 yum module disable mysql，后再次执行)
 yum -y install mysql-community-server
+
 ```
 
 #### 2、MySQL数据库设置
