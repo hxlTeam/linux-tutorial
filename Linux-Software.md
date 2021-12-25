@@ -81,6 +81,9 @@ ALTER USER 'root'@'localhost' IDENTIFIED BY 'new password';
 
 # 此时还有一个问题，就是因为安装了Yum Repository，以后每次yum操作都会自动更新，需要把这个卸载掉
 yum -y remove mysql57-community-release-el7-10.noarch
+
+# 退出数据库
+exit
 ```
 
 #### 3、开启远程连接
@@ -94,8 +97,11 @@ use mysql; #打开 mysql 数据库
 
 # 将host设置为%表示任何ip都能连接mysql，当然也可指定为某个特定ip
 update user set host='%' where user='root' and host='localhost';
-flush privileges; #刷新权限表，使配置生效
 
+# 刷新权限表，使配置生效
+flush privileges; 
+
+# 在阿里云设置安全组
 # 接下来就可以在windows上面使用图形化工具连接了
 ```
 
@@ -277,6 +283,10 @@ make && make install
 
 # 启动
 /usr/local/nginx/sbin/nginx
+
+# 如果nginx/目录下没有logs文件夹，启动会报错，需要创建文件夹并授权
+mkdir logs
+chmod 700 logs
 
 # 杀掉nginx进程
 killall -9 nginx
